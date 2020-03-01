@@ -152,6 +152,11 @@
     return NO;
 }
 
+#pragma mark TaskCellDelegate
+- (BOOL) updateCellWithModel:(TodoDataModel*)model
+{
+    return [_storage updateDataWithModel:model];
+}
 
 
 @end

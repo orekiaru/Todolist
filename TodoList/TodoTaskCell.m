@@ -41,12 +41,14 @@
         [model setStatus:YES];
     }
     
-    
-    UITableView *tableView = [self superview];
-    NSIndexPath *index = [tableView indexPathForCell:self];
-    [tableView reloadRowsAtIndexPaths:index withRowAnimation:nil];
-    [tableView reloadData];
-    
+    if([_delegate updateCellWithModel:model])
+    {
+        NSLog(@"update cell success");
+    }
+    else
+    {
+        NSLog(@"update cell fail");
+    }
 }
 
 

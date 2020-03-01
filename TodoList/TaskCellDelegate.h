@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TodoDataModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol TaskCellDelegate <NSObject>
 
 @optional
-- (BOOL) updateCellWithModel;
+- (BOOL) updateCellWithModel:(TodoDataModel*)model;
 
 @end
 

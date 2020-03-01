@@ -13,9 +13,10 @@
 #import "EditViewDelegate.h"
 #import "AddViewDelegate.h"
 #import "MainTableViewHelperDelegate.h"
+#import "TaskCellDelegate.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainTableViewHelper : NSObject<AddViewDelegate,EditViewDelegate,MainTableViewHelperDelegate>
+@interface MainTableViewHelper : NSObject<AddViewDelegate,EditViewDelegate,MainTableViewHelperDelegate,TaskCellDelegate>
 @property(weak,nonatomic) id<MainTableViewHelperDelegate> delegate;
  - (instancetype)initWithTableView:(UITableView *)tableView;
  - (void)refreshTableView;

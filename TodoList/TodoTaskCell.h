@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Model.h"
 #import "TodoDataModel.h"
+#import "TaskCellDelegate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) UITextField *remarks;
 @property (nonatomic,weak) UIImageView *image;
 @property(nonatomic,weak) UILabel *time;
+@property(nonatomic,weak) id<TaskCellDelegate> delegate;
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(TodoDataModel *) model;
  - (void)changeStatus;
 @end

@@ -82,7 +82,7 @@
 
 }
 
--(void)login:(UIButton *)button
+ - (void)login:(UIButton *)button
 {
     NSLog(@"you click the buttom");
 
