@@ -61,7 +61,7 @@
 -(BOOL)deleteDataWithModel:(TodoDataModel *)model
 {
     
-    return [self.database deleteObjectsFromTable:@"taskTable" where:TodoDataModel.localID.is(model.localID)];
+    return [self.database deleteObjectsFromTable:@"taskTable" where:TodoDataModel.localID==model.localID];
 }
 
 

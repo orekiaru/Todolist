@@ -119,7 +119,10 @@
 -(void)save:(id)sender
 {
     NSLog(@"you click save");
-    TodoDataModel *model = [[TodoDataModel alloc] initWithContent:_contentField.text Remarks:_remarkField.text ImagePath:@"" Time:_datePick.date Status:NO];
+    TodoDataModel *model = _model;
+    model.content = _contentField.text;
+    model.remarks = _remarkField.text;
+    model.time = _datePick.date;
     if([_delegate editTaskWithModel:model])
     {
         [self dismissViewControllerAnimated:YES completion:^{

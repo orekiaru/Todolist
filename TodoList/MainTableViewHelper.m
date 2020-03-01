@@ -10,6 +10,7 @@
 #import "TodoDataModelStorage.h"
 #import "TodoDataModel.h"
 #import "EditViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 @interface MainTableViewHelper ()
 
 @property (nonatomic)UITableView *tableView;
@@ -91,12 +92,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    /// 第二组可以左滑删除
-    if (indexPath.section == 2) {
-        return YES;
-    }
-    
-    return NO;
+    return YES;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,17 +105,26 @@
     if(editingStyle==UITableViewCellEditingStyleDelete)
     {
         TodoDataModel *model = [self.array objectAtIndex:indexPath.row];
-        [_storage deleteDataWithModel:model];
-        //        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-
-        dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if([_storage deleteDataWithModel:model])
+        {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.tableView reloadData];
+//                [self.tableView layoutIfNeeded];
+//            });
+            _array = [_storage select];
             [self.tableView reloadData];
             [self.tableView layoutIfNeeded];
-        });
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"删除失败"];
+        }
+        //        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+
+
     }
 }
-
-
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
