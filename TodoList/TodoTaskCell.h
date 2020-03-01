@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,weak) UITextField *remarks;
 @property (nonatomic,weak) UIImageView *image;
 @property(nonatomic,weak) UILabel *time;
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
--(void)changeStatus;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(TodoDataModel *) model;
+ - (void)changeStatus;
 @end
 
 NS_ASSUME_NONNULL_END

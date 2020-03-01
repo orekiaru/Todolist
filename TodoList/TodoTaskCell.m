@@ -11,14 +11,23 @@
 @implementation TodoTaskCell
 
 
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+ - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(TodoDataModel *)model
 {
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
+    self.model = model;
+    [self viewDidLoad];
+
     return self;
 }
 
--(void)changeStatus
+ - (void)viewDidLoad
+{
+
+    [self settingAutoLayout];
+    [self settingData];
+}
+
+ - (void)changeStatus
 {
     NSLog(@"you click change status");
     TodoDataModel *model = self.model;
@@ -35,24 +44,15 @@
     
     UITableView *tableView = [self superview];
     NSIndexPath *index = [tableView indexPathForCell:self];
-//    [tableView reloadRowsAtIndexPaths:index withRowAnimation:nil];
+    [tableView reloadRowsAtIndexPaths:index withRowAnimation:nil];
     [tableView reloadData];
     
 }
 
 
-/// rewrite set method of group
--(void)setModel:(TodoDataModel *)model
-{
-    _model=model;
-    
-    [self settingAutoLayout];
 
-//    [self settingData];
-    [self settingData];
-}
 
--(void)settingAutoLayout
+ - (void)settingAutoLayout
 {
     /// 1.创建是否完成button
     UIButton * finishBtn=[[UIButton alloc]init];
@@ -85,8 +85,10 @@
     [self.contentView addSubview:timeLabel];
     _time=timeLabel;
     
+}
 
-    
+ - (void) allControlDisplay
+{
     CGFloat margin=20;
     [_finishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(margin);
@@ -119,11 +121,93 @@
         make.right.equalTo(self.contentView.mas_right).offset(-20);
         make.bottom.equalTo(self.contentView).offset(-20);
     }];
+}
 
+ - (void)dismissImageView
+{
+    CGFloat margin=20;
+    [_finishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(margin);
+        make.left.equalTo(self.contentView).offset(margin);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        
+    }];
+    
+    [_content mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(margin);
+        make.left.equalTo(self.finishBtn.mas_right).offset(5);
+        
+    }];
+    
+    [_remarks mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.content.mas_bottom).offset(5);
+        make.left.equalTo(self.finishBtn.mas_right);
+        
+    }];
+    
+    [_time mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.remarks.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.bottom.equalTo(self.contentView).offset(-20);
+    }];
+}
+
+ - (void) dismissRemarks
+{
+    CGFloat margin=20;
+    [_finishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(margin);
+        make.left.equalTo(self.contentView).offset(margin);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        
+    }];
+    
+    [_content mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(margin);
+        make.left.equalTo(self.finishBtn.mas_right).offset(5);
+        
+    }];
+    
+    
+    [_image mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.contentView);
+        make.top.equalTo(self.content.mas_bottom).offset(5);
+        make.size.mas_equalTo(CGSizeMake(200, 200));
+        
+    }];
+    
+    [_time mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.image.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.bottom.equalTo(self.contentView).offset(-20);
+    }];
+}
+
+ - (void)dismissImageViewAndRemarks
+{
+    CGFloat margin=20;
+    [_finishBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(margin);
+        make.left.equalTo(self.contentView).offset(margin);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        
+    }];
+    
+    [_content mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.contentView).offset(margin);
+        make.left.equalTo(self.finishBtn.mas_right).offset(5);
+        
+    }];
+    
+    [_time mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.content.mas_bottom).offset(5);
+        make.right.equalTo(self.contentView.mas_right).offset(-20);
+        make.bottom.equalTo(self.contentView).offset(-20);
+    }];
 }
 
 /// set data methoed
--(void)settingData{
+ - (void)settingData{
     TodoDataModel *model=_model;
     /// set button
 
@@ -171,6 +255,20 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *strTime = [dateFormatter stringFromDate:time];
     self.time.text=strTime;
+    
+    if(!model.remarks && [model.imagePath isEqualToString:@""])
+    {
+        [self dismissImageViewAndRemarks];
+    }
+    if(!model.remarks)
+    {
+        [self dismissRemarks];
+    }
+    if([model.imagePath isEqualToString:@""])
+    {
+        [self dismissImageView];
+    }
+     [self allControlDisplay];
 
 }
 

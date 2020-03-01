@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "TodoDataModel.h"
-#import "addViewDelegate.h"
+#import "AddViewDelegate.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TodoDataModelStorage : NSObject
 
 -(instancetype)init;
--(void)selectData;
 -(NSArray<TodoDataModel*>*)select;
 -(BOOL)insertDataWithModel:(TodoDataModel*)model;
 -(BOOL)deleteDataWithModel:(TodoDataModel *)model;

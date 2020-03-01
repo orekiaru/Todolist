@@ -1,5 +1,5 @@
 //
-//  editViewController.h
+//  addViewController.h
 //  TodoList
 //
 //  Created by aru oreki on 2020/2/27.
@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "editViewDelegate.h"
+#import "AddViewDelegate.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface editViewController : UIViewController<editViewDelegate>
-@property(weak,nonatomic) id<editViewDelegate> delegate;
+@interface AddViewController : UIViewController<AddViewDelegate>
+@property(weak,nonatomic)UINavigationBar * navigationBar;
 @property(weak,nonatomic)UITextField * contentField;
 @property(weak,nonatomic)UITextField * remarkField;
 @property(weak,nonatomic)UIDatePicker * datePick;
-+(instancetype)shareController;
+@property(weak,nonatomic)UIButton * saveBtn;
+@property(weak,nonatomic) id<AddViewDelegate> delegate;
+
 @end
 
 NS_ASSUME_NONNULL_END

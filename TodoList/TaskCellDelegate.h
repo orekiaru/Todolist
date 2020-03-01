@@ -1,17 +1,20 @@
 //
-//  editViewDelegate.h
+//  TaskCellDelegate.h
 //  TodoList
 //
-//  Created by aru oreki on 2020/2/27.
+//  Created by aru oreki on 2020/2/29.
 //  Copyright © 2020 aru oreki. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "TodoDataModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol editViewDelegate <NSObject>
--(void)change:(TodoDataModel *)model;
+@protocol TaskCellDelegate <NSObject>
+
+@optional
+- (BOOL) updateCellWithModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

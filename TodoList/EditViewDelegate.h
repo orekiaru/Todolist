@@ -1,5 +1,5 @@
 //
-//  addViewDelegate.h
+//  editViewDelegate.h
 //  TodoList
 //
 //  Created by aru oreki on 2020/2/27.
@@ -10,10 +10,9 @@
 #import "TodoDataModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol addViewDelegate <NSObject>
-
--(void)pass:(TodoDataModel *)model;
-
+@protocol EditViewDelegate <NSObject>
+@optional
+ - (BOOL)editTaskWithModel:(TodoDataModel *)model;
 @end
 
 NS_ASSUME_NONNULL_END

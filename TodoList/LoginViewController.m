@@ -1,21 +1,21 @@
 //
-//  loginViewController.m
+//  LoginViewController.m
 //  
 //
 //  Created by aru oreki on 2020/2/23.
 //
 
-#import "loginViewController.h"
-#import "mainViewController.h"
+#import "LoginViewController.h"
+#import "MainViewController.h"
 #import <SVProgressHUD.h>
 #import "Masonry.h"
-@interface loginViewController ()
+@interface LoginViewController ()
 @property (nonatomic)UITextField *usernameField;
 @property (nonatomic)UITextField *passwordField;
 
 @end
 
-@implementation loginViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,8 +96,9 @@
         if([username isEqualToString:@"Admin"]&&[password isEqualToString:@"Admin"])
         {
             /// 跳转页面
-            //[self performSegueWithIdentifier:@"login2todolist" sender:nil];
-            [self presentViewController:[mainViewController shareController] animated:YES completion:nil];
+            /// [self performSegueWithIdentifier:@"login2todolist" sender:nil];
+            MainViewController * mainViewController = [[MainViewController alloc] init];
+            [self presentViewController:mainViewController animated:YES completion:nil];
         }
         else
         {
