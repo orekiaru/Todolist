@@ -69,7 +69,7 @@
 - (BOOL)updateDataWithModel:(TodoDataModel *)model
 {
     BOOL result = [self.database updateRowsInTable:@"taskTable"
-                                      onProperties:{TodoDataModel.content, TodoDataModel.remarks, TodoDataModel.time}
+                                      onProperties:{TodoDataModel.content, TodoDataModel.remarks, TodoDataModel.time,TodoDataModel.status,TodoDataModel.imagePath}
                                         withObject:model
                                              where:TodoDataModel.localID == model.localID];
     return result;

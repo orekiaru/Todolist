@@ -86,8 +86,7 @@
     TodoDataModel *model = _array[indexPath.section];
     ///创建一个单元格对象
     TodoTaskCell *cell = [[TodoTaskCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"te" model:model];
-
-    
+    cell.delegate = self;
     return cell;
 }
 
@@ -108,10 +107,6 @@
         
         if([_storage deleteDataWithModel:model])
         {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.tableView reloadData];
-//                [self.tableView layoutIfNeeded];
-//            });
             _array = [_storage select];
             [self.tableView reloadData];
             [self.tableView layoutIfNeeded];
@@ -160,7 +155,16 @@
 #pragma mark TaskCellDelegate
 - (BOOL) updateCellWithModel:(TodoDataModel*)model
 {
-    return [_storage updateDataWithModel:model];
+    if([_storage updateDataWithModel:model])
+    {
+        _array = [_storage select];
+        [self.tableView reloadData];
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
 }
 
 
