@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "MainViewController.h"
 #import "EditViewController.h"
+#import "ImagePickViewController.h"
 @interface AppDelegate ()
 
 @end
