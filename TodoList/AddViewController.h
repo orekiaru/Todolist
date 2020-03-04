@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddViewController : UIViewController<AddViewDelegate>
-@property(weak,nonatomic)UINavigationBar * navigationBar;
+//@property(weak,nonatomic)UINavigationBar * navigationBar;
 @property(weak,nonatomic)UITextField * contentField;
 @property(weak,nonatomic)UITextField * remarkField;
 @property(weak,nonatomic)UIDatePicker * datePick;

@@ -21,10 +21,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"欢迎使用私人TodoList"];
-    UINavigationBar *navigationBar = [[UINavigationBar alloc]init];
-    navigationBar.items = @[navigationItem];
-    [self.view addSubview:navigationBar];
+//    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"欢迎使用私人TodoList"];
+//    UINavigationBar *navigationBar = [[UINavigationBar alloc]init];
+//    navigationBar.items = @[navigationItem];
+//    [self.view addSubview:navigationBar];
     
     UIButton *loginBtn = [[UIButton alloc] init];
     [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
@@ -52,7 +52,7 @@
     
         make.left.equalTo(self.view.mas_left).with.offset(20);
         
-        make.top.equalTo(self.view.mas_top).with.offset(20);
+        make.top.equalTo(self.view.mas_top).with.offset(86);
         
         make.right.equalTo(self.view.mas_right).with.offset(-20);
         
@@ -96,9 +96,8 @@
         if([username isEqualToString:@"Admin"]&&[password isEqualToString:@"Admin"])
         {
             /// 跳转页面
-            /// [self performSegueWithIdentifier:@"login2todolist" sender:nil];
             MainViewController * mainViewController = [[MainViewController alloc] init];
-            [self presentViewController:mainViewController animated:YES completion:nil];
+            [self.navigationController pushViewController:mainViewController animated:YES];
         }
         else
         {

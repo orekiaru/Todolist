@@ -22,18 +22,18 @@
 @implementation MainTableViewHelper
 
 
-
--(void)pass:(TodoDataModel *)model
-{
-    
-    if([_storage insertDataWithModel:model])
-    {
-        NSLog(@"insert success");
-    }
-    _array = [_storage select];
-    [self.tableView reloadData];
-
-}
+//
+//-(void)pass:(TodoDataModel *)model
+//{
+//
+//    if([_storage insertDataWithModel:model])
+//    {
+//        NSLog(@"insert success");
+//    }
+//    _array = [_storage select];
+//    [self.tableView reloadData];
+//
+//}
 
 -(void)refreshTableView
 {
@@ -70,7 +70,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     return [_array count];

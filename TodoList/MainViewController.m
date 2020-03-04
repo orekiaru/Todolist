@@ -14,7 +14,7 @@
 
 @interface MainViewController ()
 @property(nonatomic,weak)UITableView *tableView;
-@property(nonatomic,weak)UINavigationBar *navigationBar;
+//@property(nonatomic,weak)UINavigationBar *navigationBar;
 @property (nonatomic, strong) MainTableViewHelper *tableViewHelper;
 @end
 
@@ -31,26 +31,10 @@
 }
 
  - (void)createMainFrame{
-    /// 布局导航栏，tableView和底部栏
-    UINavigationBar *navigationBar = [[UINavigationBar alloc] init];
-    
+//    /// 布局导航栏，tableView和底部栏
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
-    UIBarButtonItem * backItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(back:)];
-    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"TodoList"];
-    navigationItem.leftBarButtonItem = backItem;
-    navigationItem.rightBarButtonItem = addItem;
-    navigationBar.items = @[navigationItem];
-    //    navigationBar.
-    [self.view addSubview:navigationBar];
-    _navigationBar=navigationBar;
-    
-    [navigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.view.mas_top).offset(22);
-        make.height.mas_equalTo(44);
-    }];
-    
+//    self.navigationItem.leftBarButtonItem = backItem;
+    self.navigationItem.rightBarButtonItem = addItem;
     
     /// 添加tableView
     UITableView *tableView = [[UITableView alloc] init];
@@ -59,7 +43,7 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.navigationBar.mas_bottom);
+        make.top.equalTo(self.view.mas_top);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 }
@@ -69,21 +53,19 @@
     NSLog(@"you click add");
     AddViewController *addView = [[AddViewController alloc] init];
     addView.delegate = _tableViewHelper;
-    [self presentViewController:addView animated:YES completion:nil];
+//    [self presentViewController:addView animated:YES completion:nil];
+    [self.navigationController pushViewController:addView animated:YES];
     
 }
 
- - (void)back:(id)sender
-{
-    NSLog(@"you click back");
-}
+
 
 #pragma mark MainTableViewHelperDelegate
  - (void)jumpInterfaceWhenTableViewSelectedWithModel:(TodoDataModel *)model
 {
     EditViewController *editViewContrller =[[EditViewController alloc] initWithModel:model];
         editViewContrller.delegate = _tableViewHelper;
-    [self presentViewController:editViewContrller animated:YES completion:nil];
+    [self.navigationController pushViewController:editViewContrller animated:YES];
 }
 
 
