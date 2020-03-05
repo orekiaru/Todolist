@@ -10,7 +10,7 @@
 #import "cell/ContentCell.h"
 #import "cell/RemarkCell.h"
 #import "cell/DatePickCell.h"
-
+#import "cell/NotificationCell.h"
 @interface AddTableViewHelper ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic)UITableView *tableView;
 @end
@@ -42,7 +42,7 @@
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,9 +62,14 @@
             return cell;
         }
 
-        case 2:
+        case 3:
         {
             DatePickCell *cell = [[DatePickCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"datapick"];
+            return cell;
+        }
+        case 2:
+        {
+            NotificationCell *cell = [[NotificationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"notification"];
             return cell;
         }
         default:
