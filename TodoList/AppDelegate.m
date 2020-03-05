@@ -11,6 +11,7 @@
 #import "MainViewController.h"
 #import "EditViewController.h"
 #import "ImagePickViewController.h"
+#import "AddViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -25,6 +26,7 @@
     self.window.rootViewController = navigationController;
     self.window.backgroundColor=[UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

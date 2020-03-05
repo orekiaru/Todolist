@@ -12,10 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EditViewController : UIViewController<EditViewDelegate>
 @property(weak,nonatomic) id<EditViewDelegate> delegate;
-@property(weak,nonatomic) UITextField *contentField;
-@property(weak,nonatomic) UITextField *remarkField;
-@property(weak,nonatomic) UIDatePicker *datePick;
-//@property(weak,nonatomic) UINavigationBar *navigationBar;
+
 @property(weak,nonatomic) UIButton *saveBtn;
 @property(weak,nonatomic) TodoDataModel *model;
 

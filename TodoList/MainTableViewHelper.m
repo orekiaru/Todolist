@@ -84,7 +84,11 @@
     
     TodoDataModel *model = _array[indexPath.section];
     ///创建一个单元格对象
-    TodoTaskCell *cell = [[TodoTaskCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"te" model:model];
+    TodoTaskCell *cell = [tableView dequeueReusableCellWithIdentifier:@"taskcell"];
+    if(!cell)
+    {
+        cell = [[TodoTaskCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"taskcell" model:model];
+    }
     cell.delegate = self;
     return cell;
 }
