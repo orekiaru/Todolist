@@ -12,12 +12,19 @@
 		AE02D12024081BAA0034007F /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02D11F24081BAA0034007F /* EditViewController.m */; };
 		AE02D12324082E7D0034007F /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE02D12224082E7D0034007F /* AddViewController.m */; };
 		AE02D127240913760034007F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE02D126240913760034007F /* Assets.xcassets */; };
+		AE0432662411760600EFDEA3 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0432652411760600EFDEA3 /* NotificationCell.m */; };
 		AE05720C240B549A00DA68D3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE057206240B549900DA68D3 /* LoginViewController.m */; };
 		AE05720D240B549A00DA68D3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE057208240B549A00DA68D3 /* MainViewController.m */; };
 		AE05720E240B549A00DA68D3 /* MainTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE05720B240B549A00DA68D3 /* MainTableViewHelper.m */; };
 		AE33352924079DDD00C1D684 /* TodoDataModelStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE33352624079DDC00C1D684 /* TodoDataModelStorage.mm */; };
 		AE33352A24079DDD00C1D684 /* TodoDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE33352824079DDD00C1D684 /* TodoDataModel.mm */; };
 		AE33352D2407A33100C1D684 /* Plate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33352C2407A33100C1D684 /* Plate.m */; };
+		AE9C5CD9240C126F00506145 /* ImagePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9C5CD8240C126F00506145 /* ImagePickViewController.m */; };
+		AED79281240F72DE00D35212 /* AddTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED79280240F72DE00D35212 /* AddTableViewHelper.m */; };
+		AED79287240F87AF00D35212 /* ContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AED79286240F87AF00D35212 /* ContentCell.m */; };
+		AED7928A2410FA3D00D35212 /* RemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AED792892410FA3D00D35212 /* RemarkCell.m */; };
+		AED7928D2410FF3D00D35212 /* DatePickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7928C2410FF3D00D35212 /* DatePickCell.m */; };
+		AED792902411456500D35212 /* EditTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED7928F2411456500D35212 /* EditTableViewHelper.m */; };
 		AEED989A23FE5FB300CA2D21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEED989923FE5FB300CA2D21 /* AppDelegate.m */; };
 		AEED98A523FE5FB400CA2D21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEED98A323FE5FB400CA2D21 /* LaunchScreen.storyboard */; };
 		AEED98A823FE5FB400CA2D21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEED98A723FE5FB400CA2D21 /* main.m */; };
@@ -56,6 +63,8 @@
 		AE02D1242408A79B0034007F /* AddViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewDelegate.h; sourceTree = "<group>"; };
 		AE02D1252408E8250034007F /* EditViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewDelegate.h; sourceTree = "<group>"; };
 		AE02D126240913760034007F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AE0432642411760600EFDEA3 /* NotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
+		AE0432652411760600EFDEA3 /* NotificationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		AE057206240B549900DA68D3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		AE057207240B549A00DA68D3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		AE057208240B549A00DA68D3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -71,6 +80,18 @@
 		AE33352824079DDD00C1D684 /* TodoDataModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TodoDataModel.mm; sourceTree = "<group>"; };
 		AE33352B2407A33100C1D684 /* Plate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plate.h; sourceTree = "<group>"; };
 		AE33352C2407A33100C1D684 /* Plate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Plate.m; sourceTree = "<group>"; };
+		AE9C5CD7240C126F00506145 /* ImagePickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickViewController.h; sourceTree = "<group>"; };
+		AE9C5CD8240C126F00506145 /* ImagePickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickViewController.m; sourceTree = "<group>"; };
+		AED7927F240F72DE00D35212 /* AddTableViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTableViewHelper.h; sourceTree = "<group>"; };
+		AED79280240F72DE00D35212 /* AddTableViewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTableViewHelper.m; sourceTree = "<group>"; };
+		AED79285240F87AF00D35212 /* ContentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
+		AED79286240F87AF00D35212 /* ContentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
+		AED792882410FA3D00D35212 /* RemarkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemarkCell.h; sourceTree = "<group>"; };
+		AED792892410FA3D00D35212 /* RemarkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemarkCell.m; sourceTree = "<group>"; };
+		AED7928B2410FF3D00D35212 /* DatePickCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatePickCell.h; sourceTree = "<group>"; };
+		AED7928C2410FF3D00D35212 /* DatePickCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatePickCell.m; sourceTree = "<group>"; };
+		AED7928E2411456500D35212 /* EditTableViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditTableViewHelper.h; sourceTree = "<group>"; };
+		AED7928F2411456500D35212 /* EditTableViewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditTableViewHelper.m; sourceTree = "<group>"; };
 		AEED989523FE5FB300CA2D21 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEED989823FE5FB300CA2D21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AEED989923FE5FB300CA2D21 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -121,6 +142,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AED79282240F871600D35212 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				AE014B202406174300F56773 /* TodoTaskCell.h */,
+				AE014B212406174400F56773 /* TodoTaskCell.m */,
+				AED79285240F87AF00D35212 /* ContentCell.h */,
+				AED79286240F87AF00D35212 /* ContentCell.m */,
+				AED792882410FA3D00D35212 /* RemarkCell.h */,
+				AED792892410FA3D00D35212 /* RemarkCell.m */,
+				AED7928B2410FF3D00D35212 /* DatePickCell.h */,
+				AED7928C2410FF3D00D35212 /* DatePickCell.m */,
+				AE0432642411760600EFDEA3 /* NotificationCell.h */,
+				AE0432652411760600EFDEA3 /* NotificationCell.m */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		AEED988C23FE5FB300CA2D21 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +184,7 @@
 		AEED989723FE5FB300CA2D21 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				AED79282240F871600D35212 /* cell */,
 				AEED989823FE5FB300CA2D21 /* AppDelegate.h */,
 				AEED989923FE5FB300CA2D21 /* AppDelegate.m */,
 				AE02D1242408A79B0034007F /* AddViewDelegate.h */,
@@ -154,10 +193,12 @@
 				AE057210240B926D00DA68D3 /* TaskCellDelegate.h */,
 				AE02D12124082E7D0034007F /* AddViewController.h */,
 				AE02D12224082E7D0034007F /* AddViewController.m */,
+				AED7927F240F72DE00D35212 /* AddTableViewHelper.h */,
+				AED79280240F72DE00D35212 /* AddTableViewHelper.m */,
+				AED7928E2411456500D35212 /* EditTableViewHelper.h */,
+				AED7928F2411456500D35212 /* EditTableViewHelper.m */,
 				AE02D11E24081BAA0034007F /* EditViewController.h */,
 				AE02D11F24081BAA0034007F /* EditViewController.m */,
-				AE014B202406174300F56773 /* TodoTaskCell.h */,
-				AE014B212406174400F56773 /* TodoTaskCell.m */,
 				AE05720A240B549A00DA68D3 /* LoginViewController.h */,
 				AE057206240B549900DA68D3 /* LoginViewController.m */,
 				AE057207240B549A00DA68D3 /* MainViewController.h */,
@@ -169,6 +210,8 @@
 				AE33352724079DDC00C1D684 /* TodoDataModel+WCTTableCoding.h */,
 				AE33352524079DDC00C1D684 /* TodoDataModelStorage.h */,
 				AE33352624079DDC00C1D684 /* TodoDataModelStorage.mm */,
+				AE9C5CD7240C126F00506145 /* ImagePickViewController.h */,
+				AE9C5CD8240C126F00506145 /* ImagePickViewController.m */,
 				AE33352B2407A33100C1D684 /* Plate.h */,
 				AE33352C2407A33100C1D684 /* Plate.m */,
 				AEED98A323FE5FB400CA2D21 /* LaunchScreen.storyboard */,
@@ -380,8 +423,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED792902411456500D35212 /* EditTableViewHelper.m in Sources */,
 				AE05720D240B549A00DA68D3 /* MainViewController.m in Sources */,
+				AED79287240F87AF00D35212 /* ContentCell.m in Sources */,
 				AEED98A823FE5FB400CA2D21 /* main.m in Sources */,
+				AE0432662411760600EFDEA3 /* NotificationCell.m in Sources */,
 				AE02D12024081BAA0034007F /* EditViewController.m in Sources */,
 				AE014B222406174400F56773 /* TodoTaskCell.m in Sources */,
 				AE33352D2407A33100C1D684 /* Plate.m in Sources */,
@@ -389,7 +435,11 @@
 				AE02D12324082E7D0034007F /* AddViewController.m in Sources */,
 				AE05720E240B549A00DA68D3 /* MainTableViewHelper.m in Sources */,
 				AE33352A24079DDD00C1D684 /* TodoDataModel.mm in Sources */,
+				AED7928A2410FA3D00D35212 /* RemarkCell.m in Sources */,
+				AE9C5CD9240C126F00506145 /* ImagePickViewController.m in Sources */,
+				AED79281240F72DE00D35212 /* AddTableViewHelper.m in Sources */,
 				AE33352924079DDD00C1D684 /* TodoDataModelStorage.mm in Sources */,
+				AED7928D2410FF3D00D35212 /* DatePickCell.m in Sources */,
 				AEED989A23FE5FB300CA2D21 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
