@@ -11,7 +11,7 @@
 #import "TodoDataModel.h"
 #import "EditViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-@interface MainTableViewHelper ()
+@interface MainTableViewHelper () <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic)UITableView *tableView;
 @property (nonatomic)TodoDataModelStorage * storage;
