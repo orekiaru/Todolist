@@ -9,24 +9,6 @@
 #import "ContentCell.h"
 #import "Masonry.h"
 @implementation ContentCell
-
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier contents:(NSString *)contents
-{
-    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if(self)
-    {
-        self.contents = contents;
-        [self viewDidLoad];
-        return self;
-    }
-    else
-    {
-        NSLog(@"Cell init fail");
-        return self;
-    }
-
-    
-}
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -57,7 +39,7 @@
     }
     [_contentField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
-        make.left.equalTo(self.contentView.mas_left);
+        make.left.equalTo(self.contentView.mas_left).with.offset(12);
         make.right.equalTo(self.contentView.mas_right);
         make.bottom.equalTo(self.contentView.mas_bottom);
         make.height.mas_equalTo(44);

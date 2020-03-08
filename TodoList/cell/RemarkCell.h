@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RemarkCell : UITableViewCell
 @property (nonatomic,weak) UITextField *remarkField;
 @property (nonatomic,weak) NSString *remark;
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier reamrk:(NSString *)remark;
+
 @end
 
 NS_ASSUME_NONNULL_END

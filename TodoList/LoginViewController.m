@@ -7,11 +7,15 @@
 
 #import "LoginViewController.h"
 #import "MainViewController.h"
+#import "LoginTableViewHelper.h"
 #import <SVProgressHUD.h>
 #import "Masonry.h"
-@interface LoginViewController ()
-@property (nonatomic)UITextField *usernameField;
-@property (nonatomic)UITextField *passwordField;
+
+
+
+@interface LoginViewController ()<LoginTableViewDelegate>
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic) LoginTableViewHelper *tableViewHelper;
 
 @end
 
@@ -19,76 +23,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"欢迎来到私人TodoList";
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 
-//    UINavigationItem *navigationItem = [[UINavigationItem alloc] initWithTitle:@"欢迎使用私人TodoList"];
-//    UINavigationBar *navigationBar = [[UINavigationBar alloc]init];
-//    navigationBar.items = @[navigationItem];
-//    [self.view addSubview:navigationBar];
+    [self.view addSubview:tableView];
+    _tableView = tableView;
     
-    UIButton *loginBtn = [[UIButton alloc] init];
-    [loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
-    [loginBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [loginBtn setBackgroundColor:[UIColor greenColor]];
-    loginBtn.translatesAutoresizingMaskIntoConstraints=NO;
-    [self.view addSubview:loginBtn];
-    [loginBtn addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+    [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
     
-    UITextField *userNameTextFiled = [[UITextField alloc] init];
-    userNameTextFiled.borderStyle = UITextBorderStyleRoundedRect;
-    userNameTextFiled.placeholder = @"用户名";
-    userNameTextFiled.translatesAutoresizingMaskIntoConstraints=NO;
-    [self.view addSubview:userNameTextFiled];
-    _usernameField=userNameTextFiled;
-    
-    UITextField *userPwdTextFiled = [[UITextField alloc] init];
-    userPwdTextFiled.borderStyle = UITextBorderStyleRoundedRect;
-    userPwdTextFiled.placeholder = @"密码";
-    userPwdTextFiled.translatesAutoresizingMaskIntoConstraints=NO;
-    [self.view addSubview:userPwdTextFiled];
-    _passwordField=userPwdTextFiled;
-    
-    [userNameTextFiled mas_makeConstraints:^(MASConstraintMaker *make) {
-    
-        make.left.equalTo(self.view.mas_left).with.offset(20);
+        make.left.equalTo(self.view.mas_left);
         
-        make.top.equalTo(self.view.mas_top).with.offset(86);
+        make.top.equalTo(self.view.mas_top);
         
-        make.right.equalTo(self.view.mas_right).with.offset(-20);
+        make.right.equalTo(self.view.mas_right);
         
-        make.height.mas_equalTo(44);
+        make.bottom.equalTo(self.view.mas_bottom);
 
     }];
     
-    [userPwdTextFiled mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view);
-        make.top.equalTo(self.usernameField.mas_bottom).offset(30);
-        make.right.equalTo(self.view.mas_right).with.offset(-20);
-        make.left.equalTo(self.view).offset(20);
-        make.height.mas_equalTo(44);
-        
-    }];
+    LoginTableViewHelper *tableViewHelper = [[LoginTableViewHelper alloc] initWithTableView:_tableView];
+    _tableViewHelper = tableViewHelper;
+    _tableViewHelper.delegate = self;
     
-    
-    [loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        
-        make.centerX.equalTo(self.view);
-
-        make.top.equalTo(self.passwordField.mas_bottom).offset(30);
-
-        make.size.mas_equalTo(CGSizeMake(90, 35));
-        
-    }];
 
 }
 
- - (void)login:(UIButton *)button
+#pragma mark LoginTableViewDelegate
+ - (void)LoginTableViewHelper:(LoginTableViewHelper *)LoginTableViewHelper loginWithUsername:(NSString *)username passowrd:(NSString *)password
 {
     NSLog(@"you click the buttom");
-
-    NSString *username = _usernameField.text;
-    NSString *password = _passwordField.text;
-    
     
     [SVProgressHUD show];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

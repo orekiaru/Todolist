@@ -12,6 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddTableViewHelper : NSObject
+
+@property (nonatomic) NSString *contents;
+@property (nonatomic) NSString *remarks;
+@property (nonatomic) NSDate *time;
+@property (nonatomic) Boolean * notifitionStatus;
 - (instancetype)initWithTableView:(UITableView *)tableView;
 @end
 

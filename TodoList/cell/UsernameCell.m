@@ -1,22 +1,19 @@
 //
-//  RemarkCell.m
+//  UsernameCell.m
 //  TodoList
 //
-//  Created by aru oreki on 2020/3/5.
+//  Created by aru oreki on 2020/3/7.
 //  Copyright © 2020 aru oreki. All rights reserved.
 //
 
-#import "RemarkCell.h"
+#import "UsernameCell.h"
 #import "Masonry.h"
-@implementation RemarkCell
-
-
+@implementation UsernameCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-
         [self viewDidLoad];
         return self;
     }
@@ -28,19 +25,14 @@
     
     
 }
-
 - (void)viewDidLoad
 {
     UITextField *textField = [[UITextField alloc] init];
-    textField.placeholder = @"备注";
-    _remarkField = textField;
-    [self.contentView addSubview:textField];
-    if(_remark)
-    {
-        _remarkField.text = _remark;
-    }
-    
-    [_remarkField mas_makeConstraints:^(MASConstraintMaker *make) {
+    textField.placeholder = @"用户名";
+    _usernameField = textField;
+    [self.contentView addSubview:_usernameField];
+
+    [_usernameField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
         make.left.equalTo(self.contentView.mas_left).with.offset(12);
         make.right.equalTo(self.contentView.mas_right);

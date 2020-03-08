@@ -10,14 +10,19 @@
 #import "Model.h"
 #import "TodoTaskCell.h"
 #import "TodoDataModelStorage.h"
-#import "EditViewDelegate.h"
-#import "AddViewDelegate.h"
-#import "MainTableViewHelperDelegate.h"
-#import "TaskCellDelegate.h"
+#import "AddViewController.h"
+#import "EditViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainTableViewHelper : NSObject<AddViewDelegate,EditViewDelegate,MainTableViewHelperDelegate,TaskCellDelegate>
-@property(weak,nonatomic) id<MainTableViewHelperDelegate> delegate;
+
+@class MainTableViewHelper;
+@protocol MainTableViewHelperDelegate <NSObject>
+@optional
+- (void)mainTableViewHelper:(MainTableViewHelper *)tableViewHelper jumpInterfaceWhenTableViewSelectedWithModel:(TodoDataModel *)model;
+@end
+
+@interface MainTableViewHelper : NSObject<UITableViewDelegate,UITableViewDataSource,AddViewDelegate,EditViewDelegate,TaskCellDelegate>
+@property(nonatomic,strong) id<MainTableViewHelperDelegate> delegate;
  - (instancetype)initWithTableView:(UITableView *)tableView;
  - (void)refreshTableView;
 @end

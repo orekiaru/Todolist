@@ -27,6 +27,12 @@
     self.window.backgroundColor=[UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    [[UIApplication sharedApplication]registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    UILocalNotification *localNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if(localNotif){
+        //通知携带的信息
+        NSDictionary *dic = localNotif.userInfo;
+    }
     return YES;
 }
 
@@ -55,6 +61,21 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    if (notificationSettings.types!=UIUserNotificationTypeNone) {
+        
+    }
+}
+
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    NSDictionary *userInfo=notification.userInfo;
+    //手动把通知从通知栏取消（ios7不会自动消失）
+    [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    //本地通知数量减1
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [[[UIApplication sharedApplication] scheduledLocalNotifications] count] - 1;
+    NSLog(@"didReceiveLocalNotification:The userInfo is %@",userInfo);
 }
 
 

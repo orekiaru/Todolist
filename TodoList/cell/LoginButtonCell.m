@@ -1,22 +1,20 @@
 //
-//  RemarkCell.m
+//  LoginButtonCell.m
 //  TodoList
 //
-//  Created by aru oreki on 2020/3/5.
+//  Created by aru oreki on 2020/3/7.
 //  Copyright © 2020 aru oreki. All rights reserved.
 //
 
-#import "RemarkCell.h"
+#import "LoginButtonCell.h"
 #import "Masonry.h"
-@implementation RemarkCell
-
+@implementation LoginButtonCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-
         [self viewDidLoad];
         return self;
     }
@@ -28,22 +26,21 @@
     
     
 }
-
 - (void)viewDidLoad
 {
-    UITextField *textField = [[UITextField alloc] init];
-    textField.placeholder = @"备注";
-    _remarkField = textField;
-    [self.contentView addSubview:textField];
-    if(_remark)
-    {
-        _remarkField.text = _remark;
-    }
+    UIButton *loginButton = [[UIButton alloc] init];
+
+    _loginButton = loginButton;
+    [loginButton setTitle:@"登陆" forState:UIControlStateNormal];
+//    [loginButton setBackgroundColor:[UIColor greenColor]];
+    [loginButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     
-    [_remarkField mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.contentView addSubview:_loginButton];
+    
+    [_loginButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top);
         make.left.equalTo(self.contentView.mas_left).with.offset(12);
-        make.right.equalTo(self.contentView.mas_right);
+        make.right.equalTo(self.contentView.mas_right).with.offset(-12);
         make.bottom.equalTo(self.contentView.mas_bottom);
         make.height.mas_equalTo(44);
         

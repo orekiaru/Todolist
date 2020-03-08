@@ -41,14 +41,18 @@
         [model setStatus:YES];
     }
     
-    if([_delegate updateCellWithModel:model])
+    if(_delegate != nil && [_delegate respondsToSelector:@selector(todoTaskCell:updateCellWithModel:)] == YES)
     {
-        NSLog(@"update cell success");
+        if([_delegate todoTaskCell:self updateCellWithModel:model])
+        {
+            NSLog(@"update cell success");
+        }
+        else
+        {
+            NSLog(@"update cell fail");
+        }
     }
-    else
-    {
-        NSLog(@"update cell fail");
-    }
+
 }
 
 

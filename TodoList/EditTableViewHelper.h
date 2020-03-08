@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EditTableViewHelper : NSObject
 @property(nonatomic) TodoDataModel *model;
+@property (nonatomic) NSString *contents;
+@property (nonatomic) NSString *remarks;
+@property (nonatomic) NSDate *time;
+@property (nonatomic) Boolean * notifitionStatus;
 - (instancetype)initWithTableView:(UITableView *)tableView model:(TodoDataModel *)model;
 @end
 

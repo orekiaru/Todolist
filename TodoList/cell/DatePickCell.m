@@ -16,13 +16,6 @@
     return self;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier time:(NSDate *)time
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.time = time;
-    [self viewDidLoad];
-    return self;
-}
 
 - (void)viewDidLoad
 {

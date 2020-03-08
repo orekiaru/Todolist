@@ -13,16 +13,13 @@
 #import "Masonry.h"
 
 @interface MainViewController ()
-@property(nonatomic,weak)UITableView *tableView;
-//@property(nonatomic,weak)UINavigationBar *navigationBar;
+@property(nonatomic,strong)UITableView *tableView;
 @property (nonatomic, strong) MainTableViewHelper *tableViewHelper;
 @end
 
 @implementation MainViewController
-
-
 - (void)viewDidLoad {
-    
+    self.title = @"TodoList";
     [self createMainFrame];
     MainTableViewHelper *tableViewHelper = [[MainTableViewHelper alloc] initWithTableView:_tableView];
     self.tableViewHelper = tableViewHelper;
@@ -33,11 +30,10 @@
  - (void)createMainFrame{
 //    /// 布局导航栏，tableView和底部栏
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
-//    self.navigationItem.leftBarButtonItem = backItem;
     self.navigationItem.rightBarButtonItem = addItem;
     
     /// 添加tableView
-    UITableView *tableView = [[UITableView alloc] init];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     _tableView = tableView;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -53,7 +49,6 @@
     NSLog(@"you click add");
     AddViewController *addView = [[AddViewController alloc] init];
     addView.delegate = _tableViewHelper;
-//    [self presentViewController:addView animated:YES completion:nil];
     [self.navigationController pushViewController:addView animated:YES];
     
 }
@@ -61,7 +56,7 @@
 
 
 #pragma mark MainTableViewHelperDelegate
- - (void)jumpInterfaceWhenTableViewSelectedWithModel:(TodoDataModel *)model
+ - (void)mainTableViewHelper:(MainTableViewHelper *)tableViewHelper jumpInterfaceWhenTableViewSelectedWithModel:(TodoDataModel *)model
 {
     EditViewController *editViewContrller =[[EditViewController alloc] initWithModel:model];
         editViewContrller.delegate = _tableViewHelper;

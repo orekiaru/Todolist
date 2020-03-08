@@ -10,8 +10,12 @@
 #import "TodoDataModelStorage.h"
 #import "TodoDataModel.h"
 #import "EditViewController.h"
+#import "AddViewController.h"
+#import "EditViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-@interface MainTableViewHelper () <UITableViewDelegate,UITableViewDataSource>
+
+
+@interface MainTableViewHelper () 
 
 @property (nonatomic)UITableView *tableView;
 @property (nonatomic)TodoDataModelStorage * storage;
@@ -88,8 +92,8 @@
     if(!cell)
     {
         cell = [[TodoTaskCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"taskcell" model:model];
+        cell.delegate = self;
     }
-    cell.delegate = self;
     return cell;
 }
 
@@ -127,12 +131,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TodoDataModel *model = _array[indexPath.section];
-    [self.delegate jumpInterfaceWhenTableViewSelectedWithModel:model];
-    
+    if(_delegate != nil && [(NSObject *)_delegate respondsToSelector:@selector(mainTableViewHelper:jumpInterfaceWhenTableViewSelectedWithModel:)] == YES)
+    {
+        [self.delegate mainTableViewHelper:self jumpInterfaceWhenTableViewSelectedWithModel:model];
+    }
 }
 
 #pragma mark AddViewDelegate
- - (BOOL)addTaskWithModel:(TodoDataModel *)model
+ - (BOOL)addViewController:(AddViewController *)viewController addTaskWithModel:(TodoDataModel *)model
 {
     if([_storage insertDataWithModel:model])
     {
@@ -144,7 +150,7 @@
 }
 
 #pragma mark EditViewDelegate
- - (BOOL) editTaskWithModel:(TodoDataModel *)model
+ - (BOOL) editViewController:(EditViewController *)viewController editTaskWithModel:(TodoDataModel *)model
 {
     if([_storage updateDataWithModel:model])
     {

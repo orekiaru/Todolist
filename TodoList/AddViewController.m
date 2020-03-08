@@ -10,20 +10,21 @@
 #import "Masonry.h"
 #import "TodoDataModel.h"
 #import "MainViewController.h"
-#import "AddViewDelegate.h"
 #import <SVProgressHUD/SVProgressHUD.h>
-#import "AddTableViewHelper.h"
 #import "cell/ContentCell.h"
 #import "cell/RemarkCell.h"
 #import "cell/DatePickCell.h"
+#import "AddTableViewHelper.h"
 
-@interface AddViewController ()
-@property(nonatomic,weak)UITableView *tableView;
-@property(nonatomic,weak)AddTableViewHelper *tableViewHelper;
+
+@interface AddViewController ()<AddViewDelegate>
+@property (nonatomic,strong)    UITableView *tableView;
+@property (nonatomic)   AddTableViewHelper *tableViewHelper;
+
+@property (nonatomic)   UIButton * saveButton;
 @end
 
 @implementation AddViewController
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,15 +33,14 @@
     self.tableViewHelper = tableViewHelper;
 //    _tableViewHelper.delegate = self;
     [self initAllControl];
-
+    self.title = @"添加事项";
     
 }
-
 
 - (void)createMainFrame{
 
     /// 添加tableView
-    UITableView *tableView = [[UITableView alloc] init];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:tableView];
     _tableView = tableView;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,59 +57,17 @@
 }
  
 
-
-
 -(void)save:(id)sender
 {
     NSLog(@"you click save");
-    NSString *content;
-    NSString *remarks;
-    NSDate *time;
+    NSString *content = _tableViewHelper.contents;
+    NSString *remarks = _tableViewHelper.remarks;
+    NSDate *time = _tableViewHelper.time;
     
-    NSInteger sections = _tableView.numberOfSections;
-    for (int section = 0; section < sections; section++)
+    TodoDataModel *model = [[TodoDataModel alloc] initWithContent:content Remarks:remarks ImagePath:@"" Time:time Status:NO];
+    if(_delegate != nil && [(NSObject *)_delegate respondsToSelector:@selector(addViewController:addTaskWithModel:)] == YES)
     {
-        
-        NSInteger rows = [_tableView numberOfRowsInSection:section];
-        
-        for (int row = 0; row < rows; row++)
-        {
-            
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            
-            switch (indexPath.row)
-            {
-                case 0:
-                {
-                    ContentCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    content = cell.contentField.text;
-                    break;
-                }
-                    
-                case 1:
-                {
-                    RemarkCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    remarks = cell.remarkField.text;
-                    break;
-                }
-                    
-                case 2:
-                {
-                    DatePickCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    time = cell.datePick.date;
-                    break;
-                }
-                default:
-                {
-//                    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    break;
-                }
-            
-        }
-        
-    }
-        TodoDataModel *model = [[TodoDataModel alloc] initWithContent:content Remarks:remarks ImagePath:@"" Time:time Status:NO];
-        if([_delegate addTaskWithModel:model])
+        if([_delegate addViewController:self addTaskWithModel:model])
         {
             [self.navigationController popViewControllerAnimated:YES];
         }
@@ -117,8 +75,8 @@
         {
             [SVProgressHUD showErrorWithStatus:@"添加失败"];
         }
-
     }
+
 }
 @end
 

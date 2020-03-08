@@ -51,33 +51,100 @@
     {
         case 0:
         {
-            
-            ContentCell *cell = [[ContentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"contents" contents:_model.content];
+            NSString *cellID = @"contents";
+            ContentCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID];
+            if(!cell)
+            {
+                cell = [[ContentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            }
+            cell.contentField.text = _model.content;
+            [cell.contentField addTarget:self action:@selector(contentFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
             return cell;
         }
             
         case 1:
         {
-            RemarkCell *cell = [[RemarkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"remarks" reamrk:_model.remarks];
+            NSString *cellID = @"remarks";
+            RemarkCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID];
+            if(!cell)
+            {
+                cell = [[RemarkCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            }
+            cell.remarkField.text = _model.remarks;
+            [cell.remarkField addTarget:self action:@selector(remarkFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
             return cell;
         }
             
-        case 3:
-        {
-            DatePickCell *cell = [[DatePickCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"datapick" time:_model.time];
-            return cell;
-        }
         case 2:
         {
-            NotificationCell *cell = [[NotificationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"notification"];
+            NSString *cellID = @"notification";
+            
+            NotificationCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID];
+            if(!cell)
+            {
+                cell = [[NotificationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+                UISwitch * notificationSwitch = [[UISwitch alloc] init];
+                [notificationSwitch addTarget:self action:@selector(switchDidChange:) forControlEvents:UIControlEventValueChanged];
+                cell.accessoryView = notificationSwitch;
+            }
+            
             return cell;
         }
+        case 3:
+        {
+            NSString *cellID = @"datapick";
+            DatePickCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID];
+            if(!cell)
+            {
+                cell = [[DatePickCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            }
+            cell.datePick.date = _model.time;
+            [cell.datePick addTarget:self action:@selector(datePickDidChange:) forControlEvents:UIControlEventValueChanged];
+            return cell;
+        }
+            
         default:
         {
-            UITableViewCell *cell = [[UITableViewCell alloc] init];
+            NSString *cellID = @"default";
+            UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:cellID];
+            if(!cell)
+            {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+            }
             return cell;
         }
             
     }
+}
+
+/// 监听datePick变化
+- (void) datePickDidChange:(id)sender
+{
+    UIDatePicker *pick = (UIDatePicker *)sender;
+    _time = pick.date;
+}
+
+- (void) contentFieldDidChange:(id)sender
+{
+    
+    UITextField *field = (UITextField *)sender;
+    _contents = field.text;
+    
+}
+
+- (void) remarkFieldDidChange:(id)sender
+{
+    
+    UITextField *field = (UITextField *)sender;
+    _remarks = field.text;
+    
+}
+
+- (void) switchDidChange:(id)sender
+{
+    UISwitch * notificationSwitch= (UISwitch *)sender;
+    _notifitionStatus = notificationSwitch.isOn;
+    
+    
 }
 @end

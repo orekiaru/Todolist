@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AddViewDelegate.h"
+#import "TodoDataModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AddViewController : UIViewController<AddViewDelegate>
-@property(weak,nonatomic)UIButton * saveBtn;
-@property(weak,nonatomic) id<AddViewDelegate> delegate;
+@class AddViewController;
+@protocol AddViewDelegate <NSObject>
+@optional
+- (BOOL)addViewController:(AddViewController *)viewController addTaskWithModel:(TodoDataModel *)model;
+@end
+
+@interface AddViewController : UIViewController
+@property (nonatomic,strong) id<AddViewDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

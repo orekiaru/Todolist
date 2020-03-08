@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DatePickCell : UITableViewCell
 @property(weak,nonatomic)UIDatePicker * datePick;
 @property(weak,nonatomic)NSDate *time;
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier time:(NSDate *)time;
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 @end
 
 NS_ASSUME_NONNULL_END

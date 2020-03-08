@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ContentCell : UITableViewCell
 @property (nonatomic,weak) UITextField *contentField;
 @property (nonatomic,weak) NSString *contents;
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier contents:(NSString *)contents;
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+
 @end
 
 NS_ASSUME_NONNULL_END

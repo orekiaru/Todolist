@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EditViewDelegate.h"
+#import "TodoDataModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EditViewController : UIViewController<EditViewDelegate>
-@property(weak,nonatomic) id<EditViewDelegate> delegate;
+@class EditViewController;
+@protocol EditViewDelegate <NSObject>
+@optional
+- (BOOL)editViewController:(EditViewController *)viewController editTaskWithModel:(TodoDataModel *)model;
+@end
 
-@property(weak,nonatomic) UIButton *saveBtn;
+@interface EditViewController : UIViewController<EditViewDelegate>
+@property(strong,nonatomic) id<EditViewDelegate> delegate;
+
+@property(weak,nonatomic) UIButton *saveButton;
 @property(weak,nonatomic) TodoDataModel *model;
 
 - (instancetype)initWithModel:(TodoDataModel *)model;

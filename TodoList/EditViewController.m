@@ -15,8 +15,8 @@
 #import "cell/ContentCell.h"
 #import "cell/RemarkCell.h"
 @interface EditViewController ()
-@property(nonatomic,weak)UITableView *tableView;
-@property(nonatomic,weak)EditTableViewHelper *tableViewHelper;
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic)EditTableViewHelper *tableViewHelper;
 @end
 
 @implementation EditViewController
@@ -39,6 +39,7 @@
     [super viewDidLoad];
     /// Do any additional setup after loading the view.
     [self initAllControl];
+    self.title = @"编辑事项";
 }
 
  - (void)initAllControl
@@ -47,7 +48,7 @@
 
     self.navigationItem.rightBarButtonItem = saveItem;
     /// 添加tableView
-    UITableView *tableView = [[UITableView alloc] init];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:tableView];
     _tableView = tableView;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,6 +58,7 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
     EditTableViewHelper *tableViewHelper = [[EditTableViewHelper alloc] initWithTableView:_tableView model:_model];
+    _tableViewHelper = tableViewHelper;
     
 }
 
@@ -66,58 +68,23 @@
     NSLog(@"you click save");
     TodoDataModel *model = _model;
     
-    NSInteger sections = _tableView.numberOfSections;
-    for (int section = 0; section < sections; section++)
+    model.content = _tableViewHelper.contents;
+    model.remarks = _tableViewHelper.remarks;
+    model.time = _tableViewHelper.time;
+    
+    
+    if(_delegate !=nil &&[(NSObject *)_delegate respondsToSelector:@selector(editViewController:editTaskWithModel:)] == YES)
     {
-        
-        NSInteger rows = [_tableView numberOfRowsInSection:section];
-        
-        for (int row = 0; row < rows; row++)
+        if([_delegate editViewController:self editTaskWithModel:model])
         {
-            
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:section];
-            
-            switch (indexPath.row)
-            {
-                case 0:
-                {
-                    ContentCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    model.content = cell.contentField.text;
-                    break;
-                }
-                    
-                case 1:
-                {
-                    RemarkCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    model.remarks = cell.remarkField.text;
-                    break;
-                }
-                    
-                case 2:
-                {
-                    DatePickCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    model.time = cell.datePick.date;
-                    break;
-                }
-                default:
-                {
-                    //                    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
-                    break;
-                }
-            }
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"编辑失败"];
+        }
     }
     
-    if([_delegate editTaskWithModel:model])
-    {
-        [self.navigationController popViewControllerAnimated:YES];
-    }
-    else
-    {
-        [SVProgressHUD showErrorWithStatus:@"编辑失败"];
-    }
-
-    
-    }
 }
 
 @end
