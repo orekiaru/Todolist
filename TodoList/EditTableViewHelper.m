@@ -37,6 +37,9 @@
     //estimatedRowHeight一般设置为TableViewCellView的默认高度
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    _contents = _model.content;
+    _remarks = _model.remarks;
+    _time = _model.time;
 }
 
 #pragma mark UITableViewDataSource
