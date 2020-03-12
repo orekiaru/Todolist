@@ -8,7 +8,6 @@
 
 #import "EditViewController.h"
 #import "Masonry.h"
-#import "MainViewController.h"
 #import "EditTableViewHelper.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "cell/DatePickCell.h"

@@ -12,6 +12,7 @@
 #import "TodoDataModelStorage.h"
 #import "AddViewController.h"
 #import "EditViewController.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)mainTableViewHelper:(MainTableViewHelper *)tableViewHelper jumpInterfaceWhenTableViewSelectedWithModel:(TodoDataModel *)model;
 @end
 
-@interface MainTableViewHelper : NSObject<UITableViewDelegate,UITableViewDataSource,AddViewDelegate,EditViewDelegate,TaskCellDelegate>
+@interface MainTableViewHelper : NSObject<UITableViewDelegate,UITableViewDataSource,AddViewDelegate,EditViewDelegate,TaskCellDelegate,DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 @property(nonatomic,strong) id<MainTableViewHelperDelegate> delegate;
  - (instancetype)initWithTableView:(UITableView *)tableView;
  - (void)refreshTableView;

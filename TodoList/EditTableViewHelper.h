@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *contents;
 @property (nonatomic) NSString *remarks;
 @property (nonatomic) NSDate *time;
-@property (nonatomic) Boolean * notifitionStatus;
+@property (nonatomic) BOOL notifitionStatus;
 - (instancetype)initWithTableView:(UITableView *)tableView model:(TodoDataModel *)model;
 @end
 

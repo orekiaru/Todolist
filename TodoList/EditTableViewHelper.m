@@ -121,13 +121,13 @@
 }
 
 /// 监听datePick变化
-- (void) datePickDidChange:(id)sender
+- (void)datePickDidChange:(UIDatePicker *)datePick
 {
-    UIDatePicker *pick = (UIDatePicker *)sender;
+    UIDatePicker *pick = datePick;
     _time = pick.date;
 }
 
-- (void) contentFieldDidChange:(id)sender
+- (void)contentFieldDidChange:(id)sender
 {
     
     UITextField *field = (UITextField *)sender;
@@ -135,7 +135,7 @@
     
 }
 
-- (void) remarkFieldDidChange:(id)sender
+- (void)remarkFieldDidChange:(id)sender
 {
     
     UITextField *field = (UITextField *)sender;
@@ -143,11 +143,10 @@
     
 }
 
-- (void) switchDidChange:(id)sender
+- (void)switchDidChange:(id)sender
 {
     UISwitch * notificationSwitch= (UISwitch *)sender;
     _notifitionStatus = notificationSwitch.isOn;
-    
     
 }
 @end

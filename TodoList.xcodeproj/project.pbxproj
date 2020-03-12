@@ -19,6 +19,10 @@
 		AE33352924079DDD00C1D684 /* TodoDataModelStorage.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE33352624079DDC00C1D684 /* TodoDataModelStorage.mm */; };
 		AE33352A24079DDD00C1D684 /* TodoDataModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE33352824079DDD00C1D684 /* TodoDataModel.mm */; };
 		AE33352D2407A33100C1D684 /* Plate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE33352C2407A33100C1D684 /* Plate.m */; };
+		AE894F8724167EF800AE2110 /* LoginTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AE894F8524167EF700AE2110 /* LoginTableViewHelper.m */; };
+		AE894F8E24167F4300AE2110 /* UsernameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE894F8B24167F4200AE2110 /* UsernameCell.m */; };
+		AE894F8F24167F4300AE2110 /* PasswordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE894F8C24167F4200AE2110 /* PasswordCell.m */; };
+		AE894F9024167F4300AE2110 /* LoginButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE894F8D24167F4200AE2110 /* LoginButtonCell.m */; };
 		AE9C5CD9240C126F00506145 /* ImagePickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE9C5CD8240C126F00506145 /* ImagePickViewController.m */; };
 		AED79281240F72DE00D35212 /* AddTableViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AED79280240F72DE00D35212 /* AddTableViewHelper.m */; };
 		AED79287240F87AF00D35212 /* ContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AED79286240F87AF00D35212 /* ContentCell.m */; };
@@ -60,8 +64,6 @@
 		AE02D11F24081BAA0034007F /* EditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		AE02D12124082E7D0034007F /* AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		AE02D12224082E7D0034007F /* AddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
-		AE02D1242408A79B0034007F /* AddViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddViewDelegate.h; sourceTree = "<group>"; };
-		AE02D1252408E8250034007F /* EditViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditViewDelegate.h; sourceTree = "<group>"; };
 		AE02D126240913760034007F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE0432642411760600EFDEA3 /* NotificationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
 		AE0432652411760600EFDEA3 /* NotificationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		AE057209240B549A00DA68D3 /* MainTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewHelper.h; sourceTree = "<group>"; };
 		AE05720A240B549A00DA68D3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AE05720B240B549A00DA68D3 /* MainTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewHelper.m; sourceTree = "<group>"; };
-		AE05720F240B7B9B00DA68D3 /* MainTableViewHelperDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewHelperDelegate.h; sourceTree = "<group>"; };
-		AE057210240B926D00DA68D3 /* TaskCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskCellDelegate.h; sourceTree = "<group>"; };
 		AE33352424079DDC00C1D684 /* TodoDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDataModel.h; sourceTree = "<group>"; };
 		AE33352524079DDC00C1D684 /* TodoDataModelStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDataModelStorage.h; sourceTree = "<group>"; };
 		AE33352624079DDC00C1D684 /* TodoDataModelStorage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TodoDataModelStorage.mm; sourceTree = "<group>"; };
@@ -80,6 +80,14 @@
 		AE33352824079DDD00C1D684 /* TodoDataModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TodoDataModel.mm; sourceTree = "<group>"; };
 		AE33352B2407A33100C1D684 /* Plate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Plate.h; sourceTree = "<group>"; };
 		AE33352C2407A33100C1D684 /* Plate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Plate.m; sourceTree = "<group>"; };
+		AE894F8524167EF700AE2110 /* LoginTableViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTableViewHelper.m; sourceTree = "<group>"; };
+		AE894F8624167EF800AE2110 /* LoginTableViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTableViewHelper.h; sourceTree = "<group>"; };
+		AE894F8824167F4200AE2110 /* LoginButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginButtonCell.h; sourceTree = "<group>"; };
+		AE894F8924167F4200AE2110 /* PasswordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordCell.h; sourceTree = "<group>"; };
+		AE894F8A24167F4200AE2110 /* UsernameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsernameCell.h; sourceTree = "<group>"; };
+		AE894F8B24167F4200AE2110 /* UsernameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsernameCell.m; sourceTree = "<group>"; };
+		AE894F8C24167F4200AE2110 /* PasswordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordCell.m; sourceTree = "<group>"; };
+		AE894F8D24167F4200AE2110 /* LoginButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginButtonCell.m; sourceTree = "<group>"; };
 		AE9C5CD7240C126F00506145 /* ImagePickViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImagePickViewController.h; sourceTree = "<group>"; };
 		AE9C5CD8240C126F00506145 /* ImagePickViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImagePickViewController.m; sourceTree = "<group>"; };
 		AED7927F240F72DE00D35212 /* AddTableViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTableViewHelper.h; sourceTree = "<group>"; };
@@ -147,6 +155,12 @@
 			children = (
 				AE014B202406174300F56773 /* TodoTaskCell.h */,
 				AE014B212406174400F56773 /* TodoTaskCell.m */,
+				AE894F8824167F4200AE2110 /* LoginButtonCell.h */,
+				AE894F8D24167F4200AE2110 /* LoginButtonCell.m */,
+				AE894F8924167F4200AE2110 /* PasswordCell.h */,
+				AE894F8C24167F4200AE2110 /* PasswordCell.m */,
+				AE894F8A24167F4200AE2110 /* UsernameCell.h */,
+				AE894F8B24167F4200AE2110 /* UsernameCell.m */,
 				AED79285240F87AF00D35212 /* ContentCell.h */,
 				AED79286240F87AF00D35212 /* ContentCell.m */,
 				AED792882410FA3D00D35212 /* RemarkCell.h */,
@@ -187,13 +201,11 @@
 				AED79282240F871600D35212 /* cell */,
 				AEED989823FE5FB300CA2D21 /* AppDelegate.h */,
 				AEED989923FE5FB300CA2D21 /* AppDelegate.m */,
-				AE02D1242408A79B0034007F /* AddViewDelegate.h */,
-				AE02D1252408E8250034007F /* EditViewDelegate.h */,
-				AE05720F240B7B9B00DA68D3 /* MainTableViewHelperDelegate.h */,
-				AE057210240B926D00DA68D3 /* TaskCellDelegate.h */,
 				AE02D12124082E7D0034007F /* AddViewController.h */,
 				AE02D12224082E7D0034007F /* AddViewController.m */,
 				AED7927F240F72DE00D35212 /* AddTableViewHelper.h */,
+				AE894F8624167EF800AE2110 /* LoginTableViewHelper.h */,
+				AE894F8524167EF700AE2110 /* LoginTableViewHelper.m */,
 				AED79280240F72DE00D35212 /* AddTableViewHelper.m */,
 				AED7928E2411456500D35212 /* EditTableViewHelper.h */,
 				AED7928F2411456500D35212 /* EditTableViewHelper.m */,
@@ -424,7 +436,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AED792902411456500D35212 /* EditTableViewHelper.m in Sources */,
+				AE894F8E24167F4300AE2110 /* UsernameCell.m in Sources */,
 				AE05720D240B549A00DA68D3 /* MainViewController.m in Sources */,
+				AE894F9024167F4300AE2110 /* LoginButtonCell.m in Sources */,
 				AED79287240F87AF00D35212 /* ContentCell.m in Sources */,
 				AEED98A823FE5FB400CA2D21 /* main.m in Sources */,
 				AE0432662411760600EFDEA3 /* NotificationCell.m in Sources */,
@@ -435,12 +449,14 @@
 				AE02D12324082E7D0034007F /* AddViewController.m in Sources */,
 				AE05720E240B549A00DA68D3 /* MainTableViewHelper.m in Sources */,
 				AE33352A24079DDD00C1D684 /* TodoDataModel.mm in Sources */,
+				AE894F8724167EF800AE2110 /* LoginTableViewHelper.m in Sources */,
 				AED7928A2410FA3D00D35212 /* RemarkCell.m in Sources */,
 				AE9C5CD9240C126F00506145 /* ImagePickViewController.m in Sources */,
 				AED79281240F72DE00D35212 /* AddTableViewHelper.m in Sources */,
 				AE33352924079DDD00C1D684 /* TodoDataModelStorage.mm in Sources */,
 				AED7928D2410FF3D00D35212 /* DatePickCell.m in Sources */,
 				AEED989A23FE5FB300CA2D21 /* AppDelegate.m in Sources */,
+				AE894F8F24167F4300AE2110 /* PasswordCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TodoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TodoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

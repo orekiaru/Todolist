@@ -69,8 +69,9 @@
             if(!cell)
             {
                 cell = [[PasswordCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+                [cell.passwordField addTarget:self action:@selector(passwordDidChange:) forControlEvents:UIControlEventEditingChanged];
             }
-            [cell.passwordField addTarget:self action:@selector(passwordDidChange:) forControlEvents:UIControlEventEditingChanged];
+            cell.passwordField.text = _password;
             return cell;
         }
             

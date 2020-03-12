@@ -8,8 +8,6 @@
 
 #import "MainViewController.h"
 #import "MainTableViewHelper.h"
-#import "EditViewController.h"
-#import "AddViewController.h"
 #import "Masonry.h"
 
 @interface MainViewController ()
@@ -24,6 +22,7 @@
     MainTableViewHelper *tableViewHelper = [[MainTableViewHelper alloc] initWithTableView:_tableView];
     self.tableViewHelper = tableViewHelper;
     _tableViewHelper.delegate = self;
+    
 
 }
 
